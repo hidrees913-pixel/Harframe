@@ -1,0 +1,8 @@
+{
+  "name": "HarFrame",
+  "description": "HarFrame — AI Storyteller & Video Mastering Studio with cookie-free link download, Gemini script cleaner, free AI voiceover auditioning keeping ASMR textures, caption toggle styling, content-aware AI color grading, and 720p–4K batch queue export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

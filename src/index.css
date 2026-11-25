@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --harframe-gold: #f59e0b;
+    --harframe-amber: #fbbf24;
+    --harframe-purple: #7c3aed;
+    --harframe-purple-deep: #6d28d9;
+  }
+
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8f9fc;
+    min-height: 100vh;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+    color: #0f172a;
+  }
+
+  button, a, select, input, textarea {
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Clean light-theme scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Live kinetic caption preview animations matching ASS filter curves */
+@keyframes harframe-karaoke-bounce {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.09) translateY(-2px); }
+  45% { transform: scale(0.97); }
+  70% { transform: scale(1.04); }
+}
+
+@keyframes harframe-elastic-pop {
+  0%, 100% { transform: scale(1, 1); }
+  25% { transform: scale(1.1, 0.92); }
+  55% { transform: scale(0.96, 1.07); }
+  80% { transform: scale(1.03, 0.99); }
+}
+
+@keyframes harframe-glitch-pulse {
+  0%, 100% { transform: skewX(0deg) scale(1); filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7)); }
+  22% { transform: skewX(-4deg) scale(1.05); filter: drop-shadow(-3px 2px 0 #FF00AA); }
+  44% { transform: skewX(3deg) scale(1.02); filter: drop-shadow(3px -2px 0 #00F0FF); }
+  66% { transform: skewX(0deg) scale(1.04); }
+}
+
+@keyframes harframe-aura-wave {
+  0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.85)); }
+  50% { transform: translateY(-3px) scale(1.04); filter: drop-shadow(0 0 18px rgba(255, 223, 0, 0.85)); }
+}
+
+@keyframes harframe-comic-slam {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  15% { transform: rotate(-3.5deg) scale(1.12); }
+  35% { transform: rotate(1.5deg) scale(0.96); }
+  55% { transform: rotate(-0.5deg) scale(1.02); }
+}
+
+@keyframes harframe-flash-alert {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  25% { transform: scale(1.09); opacity: 0.92; }
+  50% { transform: scale(0.98); opacity: 1; }
+}
+
+@keyframes harframe-karaoke-sweep {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.65)); }
+  50% { transform: scale(1.04); filter: drop-shadow(0 0 18px rgba(255, 223, 0, 0.95)); }
+}
+
+.caption-anim-none {
+  animation: none;
+}
+.caption-anim-karaoke-bounce {
+  display: inline-block;
+  animation: harframe-karaoke-bounce 1.3s ease-in-out infinite;
+}
+.caption-anim-elastic-pop {
+  display: inline-block;
+  animation: harframe-elastic-pop 1.2s ease-in-out infinite;
+}
+.caption-anim-glitch-pulse {
+  display: inline-block;
+  animation: harframe-glitch-pulse 1.5s steps(2, end) infinite;
+}
+.caption-anim-aura-wave {
+  display: inline-block;
+  animation: harframe-aura-wave 1.8s ease-in-out infinite;
+}
+.caption-anim-comic-slam {
+  display: inline-block;
+  animation: harframe-comic-slam 1.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.caption-anim-flash-alert {
+  display: inline-block;
+  animation: harframe-flash-alert 0.95s ease-in-out infinite;
+}
+.caption-anim-karaoke-sweep {
+  display: inline-block;
+  animation: harframe-karaoke-sweep 1.6s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes harframe-tab-enter-left {
+  0% { opacity: 0.72; transform: translate3d(18px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes harframe-tab-enter-right {
+  0% { opacity: 0.72; transform: translate3d(-18px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.tab-enter-left {
+  animation: harframe-tab-enter-left 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tab-enter-right {
+  animation: harframe-tab-enter-right 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caption-anim-karaoke-bounce,
+  .caption-anim-elastic-pop,
+  .caption-anim-glitch-pulse,
+  .caption-anim-aura-wave,
+  .caption-anim-comic-slam,
+  .caption-anim-flash-alert,
+  .caption-anim-karaoke-sweep,
+  .tab-enter-left,
+  .tab-enter-right {
+    animation: none !important;
+  }
+}
